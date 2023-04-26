@@ -1,4 +1,3 @@
-import './Phonebook.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'components/redux/contactsSlice';
 import { setFilters } from 'components/redux/filtersSlice';

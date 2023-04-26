@@ -3,20 +3,24 @@ import { nanoid } from 'nanoid';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [],
+  initialState: JSON.parse(localStorage.getItem('contacts')) || [],
   reducers: {
     addContact(state, action) {
-      return [
-        ...state,
-        {
-          id: nanoid(),
-          name: action.payload.name,
-          number: action.payload.number,
-        },
-      ];
+      const newContact = {
+        id: nanoid(),
+        name: action.payload.name,
+        number: action.payload.number,
+      };
+      const updatedContacts = [...state, newContact];
+      localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+      return updatedContacts;
     },
     deleteContact(state, action) {
-      return state.filter(contact => contact.id !== action.payload);
+      const updatedContacts = state.filter(
+        contact => contact.id !== action.payload
+      );
+      localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+      return updatedContacts;
     },
   },
 });

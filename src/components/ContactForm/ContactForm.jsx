@@ -1,7 +1,6 @@
-import './Phonebook.css';
+import '../PhoneBook/Phonebook.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'components/redux/contactsSlice';
-import { number } from 'prop-types';
 
 function ContactForm() {
   const contacts = useSelector(state => state.contacts);

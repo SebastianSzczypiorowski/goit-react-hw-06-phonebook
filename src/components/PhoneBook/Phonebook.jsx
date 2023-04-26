@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
-import './Phonebook.css';
 
 class Phonebook extends Component {
   state = {
